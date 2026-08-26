@@ -16,13 +16,22 @@ jobs:
         with:
           fetch-depth: 0
       - shell: pwsh
-        run: ./tools/build-catalog.ps1
+        run: |
+          git fetch origin catalog
+          git checkout origin/catalog -- dist
+          ./tools/build-catalog.ps1
       - shell: pwsh
         run: |
+          $publishRoot = Join-Path $env:RUNNER_TEMP 'creator-theme-catalog'
+          git worktree add --detach $publishRoot origin/catalog
+          Remove-Item (Join-Path $publishRoot 'dist') -Recurse -Force
+          Copy-Item dist (Join-Path $publishRoot 'dist') -Recurse
+          Push-Location $publishRoot
           git config user.name "Naerian"
           git config user.email "36381088+Naerian@users.noreply.github.com"
           git add dist
           if (-not (git diff --cached --quiet)) {
             git commit -m "chore: publish creator-theme catalog [skip ci]"
-            git push
+            git push origin HEAD:catalog
           }
+          Pop-Location
