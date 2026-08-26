@@ -1,0 +1,14 @@
+{
+  "SchemaVersion": 1,
+  "Id": "naerian.narianux",
+  "Name": "NarianUX",
+  "Author": "Naerian",
+  "Version": "1.0.0",
+  "MinimumPluginVersion": "1.0.26",
+  "Description": "A luminous graphite interface with electric cyan, violet depth and state-aware accents.",
+  "RecommendedTheme": "",
+  "DesktopThemeIds": [],
+  "FullscreenThemeIds": [],
+  "Fonts": [],
+  "Sounds": {}
+}

@@ -17,6 +17,7 @@ The complete authoring reference is maintained in this repository's Wiki:
 - [English creator guide](https://github.com/Naerian/controller-manager-creator-themes/wiki/Creator-Theme-Authoring)
 - [Guía para creadores en español](https://github.com/Naerian/controller-manager-creator-themes/wiki/ES-Disenos-de-Creadores)
 - [Wiki home and language selector](https://github.com/Naerian/controller-manager-creator-themes/wiki)
+- [Creator design gallery](previews/README.md)
 
 The Wiki documents every notification and overlay property, theme-ID filtering, state colors, gradients and glow, typography, background images, custom sounds, assets, compatibility, testing and troubleshooting.
 
@@ -111,6 +112,7 @@ Installation uses a staging directory and atomic replacement. A failed or cancel
 ## Repository structure
 
 - [`themes/`](themes): reviewed design sources.
+- [`previews/`](previews): reviewed Desktop, Fullscreen and overlay screenshots for each design.
 - [`template/creator-theme/`](template/creator-theme): starter pack.
 - [`schemas/`](schemas): JSON schemas for manifests and the remote catalog.
 - [`tools/`](tools): validation and catalog-building scripts.
