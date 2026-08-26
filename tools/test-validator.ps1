@@ -15,7 +15,10 @@ function Invoke-InvalidFixture([string]$Name, [scriptblock]$Mutate, [string]$Exp
         Copy-Item (Join-Path $Root 'themes\naerian.narianux') (Join-Path $fixture 'themes\naerian.narianux') -Recurse
         Copy-Item (Join-Path $Root 'previews\naerian.narianux') (Join-Path $fixture 'previews\naerian.narianux') -Recurse
         & $Mutate $fixture
-        $output = & $shell -NoProfile -ExecutionPolicy Bypass -File $validator -Root $fixture 2>&1 | Out-String
+        $previousErrorActionPreference = $ErrorActionPreference
+        $ErrorActionPreference = 'Continue'
+        try { $output = & $shell -NoProfile -ExecutionPolicy Bypass -File $validator -Root $fixture 2>&1 | Out-String }
+        finally { $ErrorActionPreference = $previousErrorActionPreference }
         if ($LASTEXITCODE -eq 0) { throw "$Name unexpectedly passed validation" }
         if ($output -notmatch [regex]::Escape($ExpectedText)) { throw "$Name failed for the wrong reason. Output: $output" }
         Write-Host "PASS: $Name"
