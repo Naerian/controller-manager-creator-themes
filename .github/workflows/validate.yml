@@ -5,8 +5,24 @@ jobs:
   validate:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          path: candidate
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
       - shell: pwsh
         run: |
-          ./tools/validate-themes.ps1
-          ./tools/test-validator.ps1
+          $trustedTools = if (Test-Path './trusted/tools/build-pr-packages.ps1') { './trusted/tools' } else { './candidate/tools' }
+          & "$trustedTools/validate-themes.ps1" -Root './candidate'
+          & "$trustedTools/test-validator.ps1" -Root './trusted'
+          & "$trustedTools/test-pr-package-builder.ps1" -Root './candidate'
+          & "$trustedTools/build-pr-packages.ps1" -Root './candidate' -BaseSha '${{ github.event.pull_request.base.sha }}' -HeadSha '${{ github.event.pull_request.head.sha }}' -OutputDirectory './pr-artifacts'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: creator-themes-pr-${{ github.event.pull_request.number }}
+          path: pr-artifacts/*.csmtheme
+          if-no-files-found: ignore
+          retention-days: 14
