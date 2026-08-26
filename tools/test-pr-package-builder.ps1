@@ -7,7 +7,9 @@ $output = Join-Path ([IO.Path]::GetTempPath()) ("csm-pr-packages-" + [guid]::New
 try {
     $packages = @(& (Join-Path $PSScriptRoot 'build-pr-packages.ps1') -Root $Root -DesignId 'naerian.narianux' -OutputDirectory $output)
     $package = @(Get-ChildItem -LiteralPath $output -Filter '*.csmtheme' -File)
-    if ($package.Count -ne 1 -or $package[0].Name -notmatch '^naerian\.narianux-1\.0\.0-pr\.csmtheme$') { throw 'The PR package was not generated with the expected name.' }
+    $manifest = Get-Content -Raw -LiteralPath (Join-Path $Root 'themes\naerian.narianux\manifest.json') | ConvertFrom-Json
+    $expectedName = "naerian.narianux-$($manifest.Version)-pr.csmtheme"
+    if ($package.Count -ne 1 -or $package[0].Name -ne $expectedName) { throw "The PR package was not generated with the expected name: $expectedName" }
     $zip = [IO.Path]::ChangeExtension($package[0].FullName, '.zip')
     Copy-Item -LiteralPath $package[0].FullName -Destination $zip
     Add-Type -AssemblyName System.IO.Compression.FileSystem
