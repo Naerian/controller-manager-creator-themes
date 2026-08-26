@@ -31,7 +31,7 @@ Get-ChildItem (Join-Path $Root 'themes') -Directory | ForEach-Object {
         SchemaVersion = [int]$manifest.SchemaVersion
         MinimumPluginVersion = [string]$manifest.MinimumPluginVersion
         MaximumPluginVersion = [string]$manifest.MaximumPluginVersion
-        Url = "https://raw.githubusercontent.com/Naerian/controller-manager-creator-themes/main/dist/packages/$fileName"
+        Url = "https://raw.githubusercontent.com/Naerian/controller-manager-creator-themes/catalog/dist/packages/$fileName"
         Sha256 = $hash
         Size = (Get-Item $packagePath).Length
     }
