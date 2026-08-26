@@ -64,6 +64,24 @@ Do not fork the Controller Manager plugin repository to submit a design. Fork th
 
 Read the [complete Wiki](https://github.com/Naerian/controller-manager-creator-themes/wiki) before preparing a contribution. Pull requests that add executable files, unsafe paths, unlicensed assets or duplicate IDs are rejected.
 
+## Testing a pull request in Playnite
+
+Every pull request that changes a design produces a 14-day `creator-themes-pr-<number>` Actions artifact containing one test `.csmtheme` per changed design. Open the PR's **Checks → Validate creator themes → Artifacts** section to download it for inspection.
+
+Maintainers can also perform a complete temporary installation directly from a trusted clone of `main`:
+
+```powershell
+.\tools\test-pr-theme.ps1 -PullRequest 12
+```
+
+Close Playnite first. The script downloads the PR into a temporary directory, validates its data using the trusted validator from `main`, detects every changed design, backs up any installed version and installs the candidate without mixing old files. After testing, close Playnite and restore everything with:
+
+```powershell
+.\tools\test-pr-theme.ps1 -Restore
+```
+
+Use `-DesignId author.design` to test or restore one design and `-PluginDataDirectory <path>` when Playnite's data folder cannot be detected automatically. Never run scripts supplied inside an untrusted contributor branch.
+
 ## Minimal design structure
 
 ```text
