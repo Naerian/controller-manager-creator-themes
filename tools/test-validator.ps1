@@ -41,3 +41,4 @@ Invoke-InvalidFixture 'unsafe asset path' {
 } 'OverlayBackgroundImagePath escapes the design folder'
 
 Write-Host 'All validator regression tests passed.'
+exit 0
