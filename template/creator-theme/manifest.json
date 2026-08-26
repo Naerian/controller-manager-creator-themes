@@ -1,0 +1,14 @@
+{
+  "SchemaVersion": 1,
+  "Id": "author.design-name",
+  "Name": "Design name",
+  "Author": "Creator name",
+  "Version": "1.0.0",
+  "MinimumPluginVersion": "1.0.26",
+  "Description": "A short description shown in Controller Manager.",
+  "RecommendedTheme": "Optional Playnite theme name",
+  "DesktopThemeIds": [],
+  "FullscreenThemeIds": [],
+  "Fonts": [],
+  "Sounds": {}
+}

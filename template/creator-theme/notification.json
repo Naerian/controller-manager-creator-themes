@@ -1,0 +1,10 @@
+{
+  "DesktopNotificationBackgroundColor": "#F01A1D24",
+  "DesktopNotificationTextColor": "#FFFFFFFF",
+  "DesktopNotificationShowBorder": true,
+  "DesktopNotificationBorderThickness": 2,
+  "NotificationBackgroundColor": "#F01A1D24",
+  "NotificationTextColor": "#FFFFFFFF",
+  "NotificationShowBorder": true,
+  "NotificationBorderThickness": 2
+}

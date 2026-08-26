@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Controller Manager creator-theme manifest",
+  "type": "object",
+  "required": ["SchemaVersion", "Id", "Name", "Author", "Version", "MinimumPluginVersion"],
+  "properties": {
+    "SchemaVersion": { "const": 1 },
+    "Id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,99}$" },
+    "Name": { "type": "string", "minLength": 1 },
+    "Author": { "type": "string", "minLength": 1 },
+    "Version": { "type": "string" },
+    "MinimumPluginVersion": { "type": "string" },
+    "MaximumPluginVersion": { "type": "string" },
+    "Description": { "type": "string" },
+    "RecommendedTheme": { "type": "string" },
+    "ThemeIds": { "type": "array", "items": { "type": "string" } },
+    "DesktopThemeIds": { "type": "array", "items": { "type": "string" } },
+    "FullscreenThemeIds": { "type": "array", "items": { "type": "string" } },
+    "Fonts": { "type": "array" },
+    "Sounds": { "type": "object" }
+  }
+}

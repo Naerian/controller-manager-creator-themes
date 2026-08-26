@@ -1,0 +1,28 @@
+name: Publish creator-theme catalog
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'themes/**'
+      - 'tools/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - shell: pwsh
+        run: ./tools/build-catalog.ps1
+      - shell: pwsh
+        run: |
+          git config user.name "Naerian"
+          git config user.email "36381088+Naerian@users.noreply.github.com"
+          git add dist
+          if (-not (git diff --cached --quiet)) {
+            git commit -m "chore: publish creator-theme catalog [skip ci]"
+            git push
+          }
