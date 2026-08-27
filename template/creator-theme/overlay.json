@@ -1,9 +1,10 @@
 {
   "OverlayLayoutMode": "Alert",
-  "OverlayBlockOrder": "Incident,Title,ControllerName,Metadata,Instruction,Status",
+  "OverlayBlockOrder": "Incident,Title,ControllerName,Timer,Metadata,Instruction,Status",
   "OverlaySplitControllerSide": "Left",
   "OverlayShowSplitDivider": true,
   "OverlayShowIncidentBadge": true,
+  "OverlayShowDisconnectTimer": true,
   "OverlayCardColor": "#F01A1D24",
   "OverlayDimColor": "#FF11141C",
   "OverlaySceneUseGradient": true,
