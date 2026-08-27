@@ -3,12 +3,25 @@
   "Id": "naerian.narianux",
   "Name": "NarianUX",
   "Author": "Naerian",
-  "Version": "1.4.0",
-  "MinimumPluginVersion": "1.0.27",
-  "Description": "A high-contrast gaming alert system with a cyan and violet atmosphere, structured controller rail and unified status badges.",
+  "Version": "1.5.0",
+  "MinimumPluginVersion": "1.0.28",
+  "Description": "Cyan-led HUD with Chakra Petch titles, a quiet Exo 2 body and violet reserved for disconnect.",
   "RecommendedTheme": "",
   "DesktopThemeIds": [],
   "FullscreenThemeIds": [],
-  "Fonts": [],
+  "Fonts": [
+    {
+      "Id": "Display",
+      "Name": "NarianUX Display",
+      "Family": "Chakra Petch",
+      "Folder": "Fonts"
+    },
+    {
+      "Id": "Body",
+      "Name": "NarianUX Body",
+      "Family": "Exo 2",
+      "Folder": "Fonts"
+    }
+  ],
   "Sounds": {}
 }
