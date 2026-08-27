@@ -25,6 +25,9 @@ The Wiki documents every notification and overlay property, theme-ID filtering, 
 
 - Independent Desktop and Fullscreen notification designs.
 - Disconnect-overlay composition, scale, placement and alignment.
+- Declarative block ordering for overlay content and independent icon, badge and text placement for notifications.
+- Full-screen overlay scenes with a base color, linear gradient, optional image, three positioned radial glows and a configurable grid.
+- A split alert-card layout with selectable controller side, divider, incident badge and status placement.
 - Colors for connected, disconnected, warning and low-battery states.
 - Solid or gradient surfaces and borders, including state-specific borders and glow.
 - Independent border sides, thickness and corner radius.
@@ -36,6 +39,8 @@ The Wiki documents every notification and overlay property, theme-ID filtering, 
 - Exact matching against compatible Playnite Desktop and Fullscreen theme IDs.
 
 When a creator design is selected, Controller Manager locks and dims the corresponding appearance and audio controls. This preserves the composition and sound identity authored by the designer.
+
+Creator designs never execute CSS, XAML or scripts. CSS-like compositions must be expressed with the validated JSON scene and layout properties; this keeps downloaded packs data-only while still supporting layered gradients, glows, images and reordered content.
 
 ## For Controller Manager users
 
