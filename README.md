@@ -54,6 +54,8 @@ Creator designs are installed from Controller Manager itself:
 
 Controller Manager keeps the last installed copy when the computer is offline. It downloads only releases compatible with the installed plugin version and never replaces a compatible release with an incompatible one.
 
+You can also install a downloaded pull-request artifact or another trusted `.csmtheme` directly: use **Install creator design** beside **Import visual profile** in either Appearance toolbar. Controller Manager shows the author and version before installing, rejects incompatible schema/plugin versions, validates the complete data-only package, and atomically replaces an older design with the same ID.
+
 ## For creators
 
 Do not fork the Controller Manager plugin repository to submit a design. Fork this repository instead.
@@ -71,7 +73,7 @@ Read the [complete Wiki](https://github.com/Naerian/controller-manager-creator-t
 
 ## Testing a pull request in Playnite
 
-Every pull request that changes a design produces a 14-day `creator-themes-pr-<number>` Actions artifact containing one test `.csmtheme` per changed design. Open the PR's **Checks → Validate creator themes → Artifacts** section to download it for inspection.
+Every pull request that changes a design produces a 14-day `creator-themes-pr-<number>` Actions artifact containing one test `.csmtheme` per changed design. Open the PR's **Checks → Validate creator themes → Artifacts** section, download it, and install the contained package from Controller Manager's **Install creator design** button.
 
 Maintainers can also perform a complete temporary installation directly from a trusted clone of `main`:
 
