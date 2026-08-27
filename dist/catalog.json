@@ -1,10 +1,19 @@
 {
   "SchemaVersion": 1,
-  "GeneratedUtc": "2026-08-26T23:12:11.3750621Z",
+  "GeneratedUtc": "2026-08-27T09:53:06.0212146Z",
   "Themes": [
     {
       "Id": "naerian.narianux",
       "Versions": [
+        {
+          "Version": "1.2.0",
+          "SchemaVersion": 1,
+          "MinimumPluginVersion": "1.0.27",
+          "MaximumPluginVersion": "",
+          "Url": "https://raw.githubusercontent.com/Naerian/controller-manager-creator-themes/catalog/dist/packages/naerian.narianux-1.2.0.csmtheme",
+          "Sha256": "AEAE327D3A92AE6F20C42D95CA904186AB99883FF2E810E3D5E97FE8D029F519",
+          "Size": 2980
+        },
         {
           "Version": "1.1.0",
           "SchemaVersion": 1,
